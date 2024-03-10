@@ -1,4 +1,5 @@
 
+
 CREATE DATABASE IF NOT EXISTS est_jobs;
 
 use est_jobs;
