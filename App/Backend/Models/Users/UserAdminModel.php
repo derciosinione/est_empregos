@@ -2,7 +2,10 @@
 
 namespace Models\Users;
 
-class UserManager extends UserModel
+use Models\Constants;
+
+
+class UserAdminModel extends UserModel
 {
     /**
      * @param $name
@@ -17,6 +20,6 @@ class UserManager extends UserModel
         $this->phoneNumber = $phoneNumber;
         $this->birthDay = $birthDay;
 
-        parent::__construct($name, $email, $phoneNumber, $birthDay, 2);
+        parent::__construct($name, $email, $phoneNumber, $birthDay, Constants::$adminId);
     }
 }

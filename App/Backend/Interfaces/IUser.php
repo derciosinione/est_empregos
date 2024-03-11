@@ -4,8 +4,10 @@ namespace Interfaces;
 
 interface IUser
 {
-    public function login();
+    public function login($email, $password);
     public function logOut();
-    public function changePassword();
-    public function getUserById();
+    public function changePassword($password, $confirmPassword);
+    public function getUserById($userId);
+    public function getAllUserStaff();
+
 }
