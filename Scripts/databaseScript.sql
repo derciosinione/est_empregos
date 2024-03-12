@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS est_jobs;
 
-use est_jobs;
+USE est_jobs;
 
 
 CREATE TABLE IF NOT EXISTS Profiles(
