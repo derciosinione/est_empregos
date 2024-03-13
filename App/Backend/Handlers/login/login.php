@@ -26,7 +26,7 @@ $myLogin = $userService->login($email, $password);
 if ($myLogin == null) {
     $_SESSION['warning_message'] = "Invalid Credential";
     header("Location: ../Test/loginTest.php");
-    return;
+    exit();
 }
 
 $_SESSION['success_message'] = "You are logged in";

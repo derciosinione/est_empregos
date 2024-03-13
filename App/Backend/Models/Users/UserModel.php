@@ -49,7 +49,7 @@ class UserModel
      */
     public function setPasswordHash($passwordHash)
     {
-        $this->passwordHash = $passwordHash;
+        $this->passwordHash = md5($passwordHash);
     }
 
 }

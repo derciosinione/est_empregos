@@ -12,29 +12,26 @@ require_once __DIR__ .'/../Models/Users/UserManagerModel.php';
 
 class UserService implements IUser
 {
+    private $db;
     private $connection;
 
     public function __construct()
     {
-        $db = new DbContext();
-        $this->connection = $db->getConnection();
+        $this->db = new DbContext();
+        $this->connection = $this->db->getConnection();
     }
 
     public function login($email, $password)
     {
+//        $password = md5($password);
         $query = "SELECT Id, Email, UserName, PasswordHash FROM Users WHERE Email=? AND PasswordHash=?";
 
         $statement = $this->connection->prepare($query);
         $statement->bind_param("ss", $email, $password);
 
-        $statement->execute();
+        $row = $this->db->executeSqlCommand($statement);
 
-        $result = $statement->get_result();
-
-        if (!$result || $result->num_rows == 0)
-            return null;
-
-        $row = $result->fetch_assoc();
+        if ($row==null) return null;
 
         return new UserModel($row["Id"], null, $row["Email"]);
     }
@@ -61,21 +58,18 @@ class UserService implements IUser
     {
         $users = [];
         $query = "SELECT * FROM Users";
-        $result = $this->connection->query($query);
 
-        if (!$result){
-            echo "Error: " . $this->connection->error;
-            return [];
-        }
+        $data = $this->db->executeSqlQuery($query);
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $users[] = new UserModel($row["Id"],$row["Name"],$row["Email"]);
-            }
+        if ($data==null) return $users;
+
+        while ($row = $data) {
+            $users[] = new UserModel($row["Id"],$row["Name"],$row["Email"]);
         }
 
         return $users;
     }
+
 
     /**
      * Get the user with provided id from the database.
@@ -89,40 +83,30 @@ class UserService implements IUser
         $statement = $this->connection->prepare($query);
         $statement->bind_param("i", $userId);
 
-        $statement->execute();
+        $row = $this->db->executeSqlCommand($statement);
 
-        $result = $statement->get_result();
-
-        if (!$result || $result->num_rows == 0)
-            return null;
-
-        $row = $result->fetch_assoc();
+        if ($row==null) return null;
 
         return new UserModel($row["Id"], $row["Name"], $row["Email"]);
     }
 
     /**
      * @param $email
-     * @return UserModel
+     * @return UserModel|null
      */
     public function getUserByEmail($email)
     {
         $query = "SELECT * FROM Users WHERE Email = ?";
-
         $statement = $this->connection->prepare($query);
         $statement->bind_param("i", $email);
 
-        $statement->execute();
+        $row = $this->db->executeSqlCommand($statement);
 
-        $result = $statement->get_result();
-
-        if (!$result || $result->num_rows == 0)
-            return null;
-
-        $row = $result->fetch_assoc();
+        if ($row==null) return null;
 
         $user = new UserModel($row["Id"], $row["Name"], $row["Email"]);
         $user->setPasswordHash($row["PasswordHash"]);
         return $user;
     }
+
 }
