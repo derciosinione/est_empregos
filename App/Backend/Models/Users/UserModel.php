@@ -19,14 +19,16 @@ class UserModel
     public $updatedAt;
 
     /**
+     * @param $id
      * @param $name
      * @param $email
      * @param $phoneNumber
      * @param $birthDay
      * @param $profileId
      */
-    public function __construct($name, $email, $phoneNumber, $birthDay, $profileId)
+    public function __construct($id = null, $name = null, $email = null, $phoneNumber = null, $birthDay = null, $profileId = null)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->phoneNumber = $phoneNumber;
