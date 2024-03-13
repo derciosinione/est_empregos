@@ -4,7 +4,6 @@ namespace Services;
 
 use Config\DbContext;
 use Interfaces\IUser;
-use Models\Users\UserManagerModel;
 use Models\Users\UserModel;
 
 require_once __DIR__ .'/../Interfaces/IUser.php';
