@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+
+<?php include "displayMessageIfExists.php" ?>
+
 <header>You are in Admin Painel</header>
 </body>
 </html>

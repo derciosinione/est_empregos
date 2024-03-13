@@ -1,40 +1,34 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
+session_start();
+$_SESSION['success_message'] = null;
+$_SESSION['warning_message'] = null;
+
+
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
 use Services\UserService;
 include '../../Services/UserService.php';
 
-echo "<h1>Users</h1>";
-
-$userService = new UserService();
-
-foreach ($userService->getAllUserStaff() as $user){
-    echo "User ID: " . $user->id . "<br>";
-    echo "Name: " . $user->name . "<br>";
-    echo "Email: " . $user->email . "<br>";
-    echo "<hr>";
+if (!isset($_POST['email'], $_POST['password'])) {
+    $_SESSION['warning_message'] = "Provide email and password";
+    header("Location: ../Test/loginTest.php");
+    exit();
 }
 
-$myUserSearch = $userService->getUserById(1);
+$userService = new UserService();
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-echo "search: ". $myUserSearch->email;
+$myLogin = $userService->login($email, $password);
 
+if ($myLogin == null) {
+    $_SESSION['warning_message'] = "Invalid Credential";
+    header("Location: ../Test/loginTest.php");
+    return;
+}
 
-//if (isset($_POST['email'], $_POST['password'])){
-//    $email = $_POST['email'];
-//    $password = $_POST['password'];
-//
-//    if ($email!='derciosinione@gmail.com' || $password!='123456'){
-////        header("../Test/loginTest.html");
-//        echo "$email - $password - False";
-//        return;
-//    }
-//
-//    echo "$email - $password - False";
-//
-////    header("../Test/adminTest.html");
-//}
-//else{
-//    echo "Provide email and password";
-//}
+$_SESSION['success_message'] = "You are logged in";
+header("Location: ../Test/adminTest.php");
+exit();

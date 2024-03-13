@@ -23,8 +23,21 @@ class UserService implements IUser
 
     public function login($email, $password)
     {
-        echo $email . ' - ' . $password;
-        // TODO: Implement login() method.
+        $query = "SELECT Id, Email, UserName, PasswordHash FROM Users WHERE Email=? AND PasswordHash=?";
+
+        $statement = $this->connection->prepare($query);
+        $statement->bind_param("ss", $email, $password);
+
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        if (!$result || $result->num_rows == 0)
+            return null;
+
+        $row = $result->fetch_assoc();
+
+        return new UserModel($row["Id"], null, $row["Email"], $row["UserName"]);
     }
 
     public function logOut()
@@ -87,5 +100,30 @@ class UserService implements IUser
         $row = $result->fetch_assoc();
 
         return new UserModel($row["Id"], $row["Name"], $row["Email"]);
+    }
+
+    /**
+     * @param $userId
+     * @return UserModel
+     */
+    public function getUserByEmail($email)
+    {
+        $query = "SELECT * FROM Users WHERE Id = ?";
+
+        $statement = $this->connection->prepare($query);
+        $statement->bind_param("i", $email);
+
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        if (!$result || $result->num_rows == 0)
+            return null;
+
+        $row = $result->fetch_assoc();
+
+        $user = new UserModel($row["Id"], $row["Name"], $row["Email"]);
+        $user->setPasswordHash($row["PasswordHash"]);
+        return $user;
     }
 }
