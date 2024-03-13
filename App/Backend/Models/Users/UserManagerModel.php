@@ -4,6 +4,9 @@ namespace Models\Users;
 
 use Models\Constants;
 
+require_once __DIR__ .'/../Users/UserModel.php';
+
+
 class UserManagerModel extends UserModel
 {
     /**

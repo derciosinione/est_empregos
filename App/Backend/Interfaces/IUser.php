@@ -9,5 +9,4 @@ interface IUser
     public function changePassword($password, $confirmPassword);
     public function getUserById($userId);
     public function getAllUserStaff();
-
 }
