@@ -52,5 +52,4 @@ class UserModel
         $this->passwordHash = $passwordHash;
     }
 
-
 }

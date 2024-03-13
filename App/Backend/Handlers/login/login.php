@@ -4,7 +4,6 @@ session_start();
 $_SESSION['success_message'] = null;
 $_SESSION['warning_message'] = null;
 
-
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 

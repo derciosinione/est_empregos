@@ -102,12 +102,12 @@ class UserService implements IUser
     }
 
     /**
-     * @param $userId
+     * @param $email
      * @return UserModel
      */
     public function getUserByEmail($email)
     {
-        $query = "SELECT * FROM Users WHERE Id = ?";
+        $query = "SELECT * FROM Users WHERE Email = ?";
 
         $statement = $this->connection->prepare($query);
         $statement->bind_param("i", $email);
