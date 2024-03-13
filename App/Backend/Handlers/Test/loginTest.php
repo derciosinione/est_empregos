@@ -5,6 +5,7 @@
     <title>Login Test</title>
 </head>
 <body>
+    <?php include "displayMessageIfExists.php" ?>
     <form action="../login/login.php" method="post">
         <label for="email">Email</label><br>
         <input type="email" name="email" id="email" required> <br>
