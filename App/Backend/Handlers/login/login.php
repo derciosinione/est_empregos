@@ -8,6 +8,7 @@ $_SESSION['warning_message'] = null;
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
+use Models\Users\UserModel;
 use Services\UserService;
 include '../../Services/UserService.php';
 
@@ -30,5 +31,7 @@ if ($myLogin == null) {
 }
 
 $_SESSION['success_message'] = "You are logged in";
+
+$_SESSION['loggedUser'] = serialize($myLogin);
 header("Location: ../Test/adminTest.php");
 exit();

@@ -37,7 +37,7 @@ class UserService implements IUser
 
         $row = $result->fetch_assoc();
 
-        return new UserModel($row["Id"], null, $row["Email"], $row["UserName"]);
+        return new UserModel($row["Id"], null, $row["Email"]);
     }
 
     public function logOut()
