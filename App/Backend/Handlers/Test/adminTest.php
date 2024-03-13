@@ -8,7 +8,6 @@
 
 <?php
 
-
 include "displayMessageIfExists.php" ?>
 
 <header>You are in Admin Painel</header>
