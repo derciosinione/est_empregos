@@ -4,11 +4,9 @@ session_start();
 $_SESSION['success_message'] = null;
 $_SESSION['warning_message'] = null;
 
-
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-use Models\Users\UserModel;
 use Services\UserService;
 include '../../Services/UserService.php';
 
@@ -27,7 +25,7 @@ $myLogin = $userService->login($email, $password);
 if ($myLogin == null) {
     $_SESSION['warning_message'] = "Invalid Credential";
     header("Location: ../Test/loginTest.php");
-    return;
+    exit();
 }
 
 $_SESSION['success_message'] = "You are logged in";

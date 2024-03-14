@@ -16,11 +16,6 @@ class UserCompanyModel extends UserModel
      */
     public function __construct($name, $email, $phoneNumber, $birthDay)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->phoneNumber = $phoneNumber;
-        $this->birthDay = $birthDay;
-
         parent::__construct($name, $email, $phoneNumber, $birthDay, Constants::$companyId);
     }
 }
