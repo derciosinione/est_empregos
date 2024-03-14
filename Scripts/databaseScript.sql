@@ -16,10 +16,11 @@ CREATE TABLE IF NOT EXISTS Profiles(
 CREATE TABLE IF NOT EXISTS Users (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
-    UserName VARCHAR(20) DEFAULT NULL,
+    UserName VARCHAR(50) DEFAULT NULL,
+    Nif varchar(20) UNIQUE DEFAULT NULL,
     Email VARCHAR(50) NOT NULL,
     PhoneNumber VARCHAR(20),
-    AvatarUrl VARCHAR(50) NOT NULL,
+    AvatarUrl TEXT DEFAULT NULL,
     BirthDay DATE DEFAULT NULL,
     PasswordHash TEXT,
     ProfileId INT,
@@ -30,6 +31,10 @@ CREATE TABLE IF NOT EXISTS Users (
     UpdatedAt DATETIME DEFAULT NOW(),
     FOREIGN KEY (ProfileId) REFERENCES Profiles(Id) ON DELETE RESTRICT
 );
+
+-- alter table Users modify UserName varchar(50) unique;
+
+-- alter table Users add Nif varchar(20) unique after UserName;
 
 CREATE TABLE IF NOT EXISTS Categories(
     Id INT AUTO_INCREMENT PRIMARY KEY,
