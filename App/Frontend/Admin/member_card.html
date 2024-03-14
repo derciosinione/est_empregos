@@ -8,14 +8,50 @@
 </head>
 
 <body>
-    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Administradores</h1>
     <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Estilo para el título "Administradores" */
+        h1 {
+            margin: 0;
+            /* Elimina el margen predeterminado */
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Estilo para el botón */
+        .boton {
+            padding: 8px 16px;
+            font-size: 12.5px;
+            font-weight: 600;
+            height: 48px;
+            width: 147px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton:hover {
+            background-color: #0056b3;
+        }
 
         /* Contenedor para las tarjetas, usando flexbox */
         .contenedor-tarjetas {
             display: flex;
-            flex-wrap: wrap; /* Para que las tarjetas se envuelvan en múltiples líneas si no caben en una sola fila */
-            justify-content: center; /* Para distribuir las tarjetas equitativamente en la fila */
+            flex-wrap: wrap;
+            /* Para que las tarjetas se envuelvan en múltiples líneas si no caben en una sola fila */
+            justify-content: center;
+            /* Para distribuir las tarjetas equitativamente en la fila */
         }
 
         /* Estilo básico para las tarjetas */
@@ -38,59 +74,58 @@
         }
     </style>
 
+    <header>
+        <h1>Administradores</h1>
+        <button class="boton">Adicionar miembro</button>
+    </header>
+
     <body>
-      <div>
-        <div class="contenedor-tarjetas">
-            <!-- Tarjeta 1 -->
-            <div class="tarjeta">
-                <img src="/est_empregos/App/Frontend/Images/Jason_Price.jpg"
-                    alt="Jason Price">
-                <h3>Jason Price</h3>
-                <p>kuhlman.jermey@yahoo.com</p>
-            </div>
+        <div>
+            <div class="contenedor-tarjetas">
+                <!-- Tarjeta 1 -->
+                <div class="tarjeta">
+                    <img src="/est_empregos/App/Frontend/Images/Jason_Price.jpg" alt="Jason Price">
+                    <h3>Jason Price</h3>
+                    <p>kuhlman.jermey@yahoo.com</p>
+                </div>
 
-            <!-- Tarjeta 2 -->
-            <div class="tarjeta">
-                <img src="/est_empregos/App/Frontend/Images/Duane_Dean.jpg"
-                    alt="Duane Dean">
-                <h3>Duane Dean</h3>
-                <p>rusty.botsford@wilfrid.io</p>
-            </div>
+                <!-- Tarjeta 2 -->
+                <div class="tarjeta">
+                    <img src="/est_empregos/App/Frontend/Images/Duane_Dean.jpg" alt="Duane Dean">
+                    <h3>Duane Dean</h3>
+                    <p>rusty.botsford@wilfrid.io</p>
+                </div>
 
-            <!-- Tarjeta 3 -->
-            <div class="tarjeta">
-                <img src="/est_empregos/App/Frontend/Images/Jonathan_Barker.jpg"
-                    alt="Jonathan Barker">
-                <h3>Jonathan Barker</h3>
-                <p>cora_haley@quinn.biz</p>
+                <!-- Tarjeta 3 -->
+                <div class="tarjeta">
+                    <img src="/est_empregos/App/Frontend/Images/Jonathan_Barker.jpg" alt="Jonathan Barker">
+                    <h3>Jonathan Barker</h3>
+                    <p>cora_haley@quinn.biz</p>
+                </div>
+            </div>
+            <div class="contenedor-tarjetas">
+                <!-- Tarjeta 4 -->
+                <div class="tarjeta">
+                    <img src="/est_empregos/App/Frontend/Images/Rosie_Glover.jpg" alt="Rosie Glover">
+                    <h3>Rosie Glover</h3>
+                    <p>lockman.marques@hotmail.com</p>
+                </div>
+
+                <!-- Tarjeta 5 -->
+                <div class="tarjeta">
+                    <img src="/est_empregos/App/Frontend/Images/Patrick_Greer.jpg" alt="Patrick Greer">
+                    <h3>Patrick Greer</h3>
+                    <p>pearlie.eichmann@trevion.net</p>
+                </div>
+
+                <!-- Tarjeta 6 -->
+                <div class="tarjeta">
+                    <img src="/est_empregos/App/Frontend/Images/Darrell_Ortega.jpg" alt="Darrell Ortega">
+                    <h3>Darrell Ortega</h3>
+                    <p>chaya.shields@ferry.info</p>
+                </div>
             </div>
         </div>
-        <div class="contenedor-tarjetas">
-            <!-- Tarjeta 4 -->
-            <div class="tarjeta">
-                <img src="/est_empregos/App/Frontend/Images/Rosie_Glover.jpg"
-                    alt="Rosie Glover">
-                <h3>Rosie Glover</h3>
-                <p>lockman.marques@hotmail.com</p>
-            </div>
-
-            <!-- Tarjeta 5 -->
-            <div class="tarjeta">
-                <img src="/est_empregos/App/Frontend/Images/Patrick_Greer.jpg"
-                    alt="Patrick Greer">
-                <h3>Patrick Greer</h3>
-                <p>pearlie.eichmann@trevion.net</p>
-            </div>
-
-            <!-- Tarjeta 6 -->
-            <div class="tarjeta">
-                <img src="/est_empregos/App/Frontend/Images/Darrell_Ortega.jpg"
-                    alt="Darrell Ortega">
-                <h3>Darrell Ortega</h3>
-                <p>chaya.shields@ferry.info</p>
-            </div>
-        </div>
-      </div>
     </body>
 
 </html>
