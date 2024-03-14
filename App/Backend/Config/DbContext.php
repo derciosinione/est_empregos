@@ -38,6 +38,8 @@ class DbContext
      */
     public function executeSqlCommand($statement)
     {
+        $this->getConnection();
+
         $statement->execute();
 
         $result = $statement->get_result();
@@ -56,6 +58,8 @@ class DbContext
      */
     public function executeSqlQuery($query)
     {
+        $this->getConnection();
+
         $result = $this->connection->query($query);
 
         if (!$result){
@@ -69,6 +73,34 @@ class DbContext
         $this->closeConnection();
 
         return $response;
+    }
+
+    /**
+     * Executes an INSERT query and returns the last inserted ID if successful.
+     *
+     * @param string $query The SQL INSERT query to execute.
+     *
+     * @return int|null The last inserted ID if the query was successful, or null on failure.
+     */
+    public function executeInsertQuery($query)
+    {
+        $this->getConnection();
+
+        $result = $this->connection->query($query);
+
+        if (!$result){
+            die("Query execution failed: " . $this->connection->error);
+        }
+
+        $lastInsertedId = 0;
+
+        if ($result === true &&  $this->connection->insert_id !== 0) {
+            $lastInsertedId = $this->connection->insert_id;
+        }
+
+        $this->closeConnection();
+
+        return $lastInsertedId;
     }
 
     public function closeConnection()
