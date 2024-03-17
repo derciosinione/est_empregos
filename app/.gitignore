@@ -27,3 +27,9 @@ Thumbs.db
 # Ignore sensitive information
 /.env.local
 /.env.*.local
+
+
+/composer.phar
+*composer.phar
+
+app/composer.phar
