@@ -1,9 +1,44 @@
+<?php
+// Inicia la sesión para tener acceso al nombre de usuario del usuario conectado
+session_start();
+
+// Verifica si el formulario ha sido enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require 'components/dbchangepass.php'; // Asume que tienes un archivo dbchangepass.php con la conexión a la base de datos
+
+    $username = $_SESSION['username']; // Asume que el nombre de usuario está almacenado en la sesión
+    $newPassword = $_POST['newPassword'];
+    $repeatNewPassword = $_POST['repeatNewPassword'];
+
+    if ($newPassword === $repeatNewPassword) {
+        // Asegúrate de usar password_hash para encriptar la contraseña antes de guardarla en la base de datos
+        $passwordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        // Prepara la sentencia SQL para evitar inyecciones SQL
+        $stmt = $conn->prepare("UPDATE users SET PasswordHash = $newPassword WHERE UserName = $username");
+        echo $stmt;
+        $stmt->bind_param("ss", $passwordHash, $username);
+
+        if ($stmt->execute()) {
+            echo "Contraseña actualizada con éxito.";
+        } else {
+            echo "Error al actualizar la contraseña.";
+        }
+
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "Las contraseñas no coinciden.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Config</title>
+    <title>Change Password</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
@@ -139,15 +174,21 @@
         <!-- MAIN BODY -->
         <div class="main-body">
             <div class="settings-container">
-                <h2>Preferencias de la Cuenta</h2>
-                <ul class="preferences-list">
-                <li><a href="change-password.php">Cambiar Contraseña</a></li>
-                <li><a href="privacy-settings.php">Configuración de Privacidad</a></li>
-                <li><a href="notification-settings.php">Configuración de Notificaciones</a></li>
-                <!-- Añade más opciones según necesites -->
-                </ul>
-            </div>
 
+                <form method="post" action="change-password.php">
+                    <label for="newPassword">New password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+
+                    <br>
+
+                    <label for="repeatNewPassword">Repeat new password:</label>
+                    <input type="password" id="repeatNewPassword" name="repeatNewPassword" required>
+
+                    <br>
+
+                    <button type="submit">Change Password</button>
+                </form>
+            </div>
 
         </div>
 
