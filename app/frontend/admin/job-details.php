@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/jobs.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/member-style.css">
+    <title>Team</title>
 </head>
 <body>
 
@@ -31,7 +32,7 @@
                 </li>
             </ul>
 
-            <ul class="active-sidebar-menu">
+            <ul>
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="jobs.php">
@@ -65,7 +66,7 @@
                 </li>
             </ul>
 
-            <ul>
+            <ul class="active-sidebar-menu">
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="team.php">
@@ -126,8 +127,7 @@
 
             <div class="main-header-right">
                 <div class="avatar">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                         alt="">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
                 <div>
                     <p class="bold">Ana Bela</p>
@@ -138,11 +138,46 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-            <!-- <h2>Ofertas de Empregos</h2> -->
-            <?php include_once 'components/view_jobs.php' ?>
+        <h1>Detalhes da vaga de Desenvolvedor Web</h1>
+    <p><b>Descrição: </b>Estamos a procra de um Desenvolvedor Web atltamente talentoso para se juntar a nossa equipe de TI. Serás responsavél oelo desenvolvimento e manutenção de sites e aplicativos da Web.</p>
+    <p><b>Localização: </b>Coimbra-Portugal</p>
+    <p><b>Requsitos: </b></p>
+    <ul>
+        <li>
+            Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
+        </li>
+        <li>
+            Muito bons conhecimentos de linguagens de programação Web, como HTML,CSS,JavaScript e framewares como React ou Angular.
+        </li>
+    </ul>
+
+
         </div>
 
     </main>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
