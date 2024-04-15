@@ -139,7 +139,7 @@
         <!-- MAIN BODY -->
         <div class="main-body">
             <!-- <h2>Ofertas de Empregos</h2> -->
-            <?php include_once 'components/view_jobs.php' ?>
+            <?php include 'components/jobs_cards.php' ?>
         </div>
 
     </main>

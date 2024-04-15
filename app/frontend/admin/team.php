@@ -140,9 +140,9 @@
         <div class="main-body">
 
             <!-- MEMBER CARDS -->
-<!--            --><?php //include_once 'components/member-card.php' ?>
+<!--            --><?php include_once 'components/member-card.php' ?>
 
-            <?php include_once 'components/member-card.php' ?>
+<!--            --><?php //include_once 'components/member-card.php' ?>
 
         </div>
 

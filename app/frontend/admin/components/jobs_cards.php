@@ -6,7 +6,7 @@
     <div class="contenedor-tarjetas">
         <!-- Tarjeta 1 -->
         <div class="tarjeta">
-            <a href="/app/frontend/admin/job-details.php">
+            <a href="job-details.php">
                 <img src="https://dkrn4sk0rn31v.cloudfront.net/2018/08/17172630/desenvolvedor-web.png">
             </a>
             <h3>Desenvolvedor Web</h3>
@@ -16,7 +16,7 @@
         </div>
 
         <div class="tarjeta">
-            <a href="http://localhost/est_empregos/app/frontend/admin/job-details.php">
+            <a href="job-details.php">
                 <img src="https://blog.eseg.edu.br/wp-content/uploads/2023/07/Blogpost-desenvolvedor-de-software.png">
             </a>
             <h3>Desenvolvedor de Software</h3>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="tarjeta">
-            <a href="http://localhost/est_empregos/app/frontend/admin/job-details.php">
+            <a href="job-details.php">
                 <img src="https://www.kyoceradocumentsolutions.es/renditions/content/dam/kyocera/es/images/hero/hero-1536x960-Responsabilidad%20del%20administrador%20de%20redes.jpg/jcr:content/renditions/cq5dam.resized.img.1536.large.time1575031110048.jpg">
             </a>
             <h3>Adminiatrador de Redes</h3>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="tarjeta">
-            <a href="http://localhost/est_empregos/app/frontend/admin/job-details.php">
+            <a href="job-details.php">
                 <img src="https://th.bing.com/th/id/R.eb5a8d514f1a516452894db49031669b?rik=HG5jSHarBLlDaA&pid=ImgRaw&r=0">
             </a>
             <h3>Administrador de Marketing</h3>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="tarjeta">
-            <a href="http://localhost/est_empregos/app/frontend/admin/job-details.php">
+            <a href="job-details.php">
                 <img src="https://th.bing.com/th/id/R.eb5a8d514f1a516452894db49031669b?rik=HG5jSHarBLlDaA&pid=ImgRaw&r=0">
             </a>
             <h3>Administrador de Marketing</h3>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="tarjeta">
-            <a href="http://localhost/est_empregos/app/frontend/admin/job-details.php">
+            <a href="job-details.php">
                 <img src="https://th.bing.com/th/id/R.eb5a8d514f1a516452894db49031669b?rik=HG5jSHarBLlDaA&pid=ImgRaw&r=0">
             </a>
             <h3>Administrador de Marketing</h3>
