@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/member-style.css">
-    <title>Team</title>
+    <link rel="stylesheet" href="css/add-member.css">
+    <title>Document</title>
 </head>
 <body>
 
@@ -66,7 +65,7 @@
                 </li>
             </ul>
 
-            <ul class="active-sidebar-menu">
+            <ul>
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="team.php">
@@ -76,7 +75,7 @@
                 </li>
             </ul>
 
-            <ul>
+            <ul class="active-sidebar-menu">
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="managers.php">
@@ -92,7 +91,8 @@
 
             <ul>
                 <div class="active-sidebar-menu-line"></div>
-                <li><a href="settings.php">
+                <li>
+                    <a href="settings.php">
                         <i class="fas fa-cogs"></i>
                         <span>Settings</span>
                     </a>
@@ -127,7 +127,8 @@
 
             <div class="main-header-right">
                 <div class="avatar">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                         alt="">
                 </div>
                 <div>
                     <p class="bold">Ana Bela</p>
@@ -138,19 +139,62 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-            <header>
-                <h1>Membros</h1>
-                
-                <a href="add-member.php"><button class="boton">Adicionar miembro</button></a>
-            </header>
+            <!-- <h1>Criar formulário</h1> -->
+            <div class="container">
+                <div class="title">Registrar</div>
+                <form action="#">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Nome</span>
+                            <input type="text" placeholder="Introduza o nome" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">NIF</span>
+                            <input type="number" placeholder="Introduza o NIF" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Email</span>
+                            <input type="email" placeholder="Introduza o email" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Número de telemóvel</span>
+                            <input type="number" placeholder="(+xxx) xxx-xxx-xxx" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Data de Nascimento</span>
+                            <input type="date" id="data-nascimento" name="data-nascimento" value="1995-08-11">
+                        </div>
 
-            <!-- MEMBER CARDS -->
-          <!-- <?php include_once 'components/team-cards.php' ?> -->
+                        <div class="genero-details">
+                            <label for="genero">Gênero:</label>
+                            <div class="dropdown">
+                                <select id="genero" name="genero">
+                                    <option value="homem">Homem</option>
+                                    <option value="mulher">Mulher</option>
+                                    <option value="nao-binario">Não binário</option>
+                                    <option value="prefiro-nao-dizer">Prefiro não dizer</option>
+                                </select>
+                            </div>
+                        </div>
 
-            <?php include_once 'components/member-card.php' ?>
-
+                        <div class="perfil-details">
+                            <label for="perfil">Perfil:</label>
+                            <div class="dropdown">
+                                <select id="perfil" name="perfil">
+                                    <option value="gerente">Gerente</option>
+                                    <option value="administrador">Administrador</option>
+                                    <option value="empresa">Empresa</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Adicionar">
+                    </div>
+                </form>
+            </div>
         </div>
-
     </main>
 </div>
 </body>
