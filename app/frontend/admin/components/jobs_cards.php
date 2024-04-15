@@ -1,5 +1,6 @@
 <header>
     <h1>Ofertas de Emprego</h1>
+    <button class="boton">Adicionar oferta</button>
 </header>
 
 <div>
