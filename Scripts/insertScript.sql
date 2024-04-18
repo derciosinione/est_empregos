@@ -1,6 +1,6 @@
 USE est_jobs;
 
-INSERT INTO Profiles (Name, IsActive) VALUES ('UserAdminModel', true);
+INSERT INTO Profiles (Name, IsActive) VALUES ('Admin', true);
 INSERT INTO Profiles (Name, IsActive) VALUES ('Gestor', true);
 INSERT INTO Profiles (Name, IsActive) VALUES ('Empresa', true);
 
