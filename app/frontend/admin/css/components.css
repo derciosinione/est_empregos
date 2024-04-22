@@ -1,6 +1,7 @@
-/* STYLE INPUT TEXT */
+/* STYLE INPUT TEXT AND PASSWORD */
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     outline: none;
     width: 300px;
     padding: 10px;
@@ -10,19 +11,21 @@ input[type="text"] {
     color: #565656;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-input[type="text"]::placeholder {
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
     color: #aaa;
 }
 
-input[type="text"]:hover {
+input[type="text"]:hover,
+input[type="password"]:hover {
     border-color: #999;
 }
-
 
 input[type="submit"], input[type="button"], button {
     outline: none;
