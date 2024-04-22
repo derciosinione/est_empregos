@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Config</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
@@ -137,7 +138,15 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-
+            <div class="settings-container">
+                <h2>User Configuration</h2>
+                <ul class="preferences-list">
+                <li><a href="change-password.php">Change Password</a></li>
+                <li><a href="privacy-settings.php">Privacy Config</a></li>
+                <li><a href="notification-settings.php">Notification Config</a></li>
+                <!-- Añade más opciones según necesites -->
+                </ul>
+            </div>
 
 
         </div>

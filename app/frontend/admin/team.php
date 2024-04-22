@@ -138,9 +138,14 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
+            <header>
+                <h1>Membros</h1>
+                
+                <a href="add-member.php"><button class="boton">Adicionar miembro</button></a>
+            </header>
 
             <!-- MEMBER CARDS -->
-<!--            --><?php //include_once 'components/member-card.php' ?>
+          <!-- <?php include_once 'components/team-cards.php' ?> -->
 
             <?php include_once 'components/member-card.php' ?>
 
