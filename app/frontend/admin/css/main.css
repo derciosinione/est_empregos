@@ -59,6 +59,23 @@ main {
     margin: 30px;
     margin-bottom: 0;
     height: 100rem;
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        /*padding-bottom: 30px;*/
+        /*border-bottom: 1px solid #ccc;*/
+
+        /* Estilo para el título "Administradores" */
+        h1 {
+            margin: 0;
+            /* Elimina el margen predeterminado */
+            font-size: 24px;
+            color: #333;
+        }
+    }
 }
 
 .main-header {
