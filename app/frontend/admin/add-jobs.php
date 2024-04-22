@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/member-style.css">
-    <link rel="stylesheet" href="css/job-details.css">
-    <title>Jobs tetails</title>
+    <link rel="stylesheet" href="css/add-jobs.css">
+    <title>Add jobs</title>
 </head>
 <body>
 
@@ -33,7 +31,7 @@
                 </li>
             </ul>
 
-            <ul class="active-sidebar-menu">
+            <ul>
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="jobs.php">
@@ -77,7 +75,7 @@
                 </li>
             </ul>
 
-            <ul>
+            <ul class="active-sidebar-menu">
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="managers.php">
@@ -93,7 +91,8 @@
 
             <ul>
                 <div class="active-sidebar-menu-line"></div>
-                <li><a href="settings.php">
+                <li>
+                    <a href="settings.php">
                         <i class="fas fa-cogs"></i>
                         <span>Settings</span>
                     </a>
@@ -128,7 +127,8 @@
 
             <div class="main-header-right">
                 <div class="avatar">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                         alt="">
                 </div>
                 <div>
                     <p class="bold">Ana Bela</p>
@@ -139,27 +139,27 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
+            <!-- <h1>Criar formulário</h1> -->
             <div class="container">
-                <div class="title">Detalhes da vaga  X</div>
+                <div class="title">Publicar Vaga de Emprego</div>
                 <form action="#">
                     <div class="user-details">
                         <div class="input-box">
-                            <p><b>Descrição: </b>Estamos a procura de um Desenvolvedor Web altamente talentoso para se juntar à nossa equipe de TI. Serás responsável pelo desenvolvimento e manutenção de sites e aplicativos da Web.</p>
+                            <span class="details">Título</span>
+                            <input type="text" placeholder="Introduza o titilo" required>
                         </div>
                         <div class="input-box">
-                            <p><b>Localização: </b>Coimbra-Portugal</p>
+                            <span class="details">Categoria</span>
+                            <input type="text" placeholder="Introduza a categoria" required>
                         </div>
                         <div class="input-box">
-                            <p><b>Requisitos: </b></p>
-                            <ul>
-                                <li>
-                                    Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
-                                </li>
-                                <li>
-                                    Muito bons conhecimentos de linguagens de programação Web, como HTML, CSS, JavaScript e frameworks como React ou Angular.
-                                </li>
-                            </ul>
+                            <span class="details">Descrição</span>
+                            <textarea id="descricao" placeholder="Introduza a descrição" required></textarea>
                         </div>
+                        
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Publicar">
                     </div>
                 </form>
             </div>
@@ -168,26 +168,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
