@@ -142,8 +142,8 @@
                 <h2>User Configuration</h2>
                 <ul class="preferences-list">
                 <li><a href="change-password.php">Change Password</a></li>
-                <li><a href="privacy-settings.php">Privacy Config</a></li>
-                <li><a href="notification-settings.php">Notification Config</a></li>
+                <li><a href="#">Privacy Config</a></li>
+                <li><a href="#">Notification Config</a></li>
                 <!-- Añade más opciones según necesites -->
                 </ul>
             </div>
