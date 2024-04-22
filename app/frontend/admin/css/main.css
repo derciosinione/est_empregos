@@ -3,7 +3,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -59,6 +58,23 @@ main {
     margin: 30px;
     margin-bottom: 0;
     height: 100rem;
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        /*padding-bottom: 30px;*/
+        /*border-bottom: 1px solid #ccc;*/
+
+        /* Estilo para el título "Administradores" */
+        h1 {
+            margin: 0;
+            /* Elimina el margen predeterminado */
+            font-size: 24px;
+            color: #333;
+        }
+    }
 }
 
 .main-header {
@@ -158,6 +174,41 @@ main {
     width: 5px;
     height: 100%;
     border-radius: 0 20px 20px 0; /* top-left top-right bottom-right bottom-left */
+}
+
+.settings-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.preferences-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.preferences-list li {
+    margin-bottom: 10px;
+}
+
+.preferences-list li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.preferences-list li a:hover {
+    background-color: #f0f0f0;
 }
 
 

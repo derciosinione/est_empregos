@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/empresas.css">
     <title>Document</title>
 </head>
 <body>
@@ -138,7 +139,56 @@
         <!-- MAIN BODY -->
         <div class="main-body">
 
+            <header>
+                <h1>Empresas</h1>
+<!--                <button class="boton">Adicionar Empresa</button>-->
+            </header>
 
+            <div class="content">
+                <div class="empresas-display">
+                    <h3>Detalhes das empresas</h3>
+                    <div class="empresas-list">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>NIF</th>
+                                <th>Email</th>
+                                <th>Date - Time</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><img src="../Images/empresa1.png" class="company-icon">McDonald's</td>
+                                <td>123 eu antes sofria, agora sou fria</td>
+                                <td>123456789</td>
+                                <td>business@mcdonalds.pt</td>
+                                <td>2024-03-16 09:00</td>
+                                <td class="status" data-status="Habilitada"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../Images/empresa1.png" class="company-icon">McDonald's</td>
+                                <td>123 eu antes sofria, agora sou fria</td>
+                                <td>123456789</td>
+                                <td>business@mcdonalds.pt</td>
+                                <td>2024-03-16 09:00</td>
+                                <td class="status" data-status="Pending"></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../Images/empresa1.png" class="company-icon">McDonald's</td>
+                                <td>123 eu antes sofria, agora sou fria</td>
+                                <td>123456789</td>
+                                <td>business@mcdonalds.pt</td>
+                                <td>2024-03-16 09:00</td>
+                                <td class="status" data-status="Bloqueada"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

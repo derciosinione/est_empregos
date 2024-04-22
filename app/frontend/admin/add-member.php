@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/jobs.css">
+    <link rel="stylesheet" href="css/add-member.css">
     <title>Document</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
                 </li>
             </ul>
 
-            <ul class="active-sidebar-menu">
+            <ul>
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="jobs.php">
@@ -75,7 +75,7 @@
                 </li>
             </ul>
 
-            <ul>
+            <ul class="active-sidebar-menu">
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="managers.php">
@@ -91,7 +91,8 @@
 
             <ul>
                 <div class="active-sidebar-menu-line"></div>
-                <li><a href="settings.php">
+                <li>
+                    <a href="settings.php">
                         <i class="fas fa-cogs"></i>
                         <span>Settings</span>
                     </a>
@@ -138,10 +139,62 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-            <!-- <h2>Ofertas de Empregos</h2> -->
-            <?php include 'components/jobs_cards.php' ?>
-        </div>
+            <!-- <h1>Criar formulário</h1> -->
+            <div class="container">
+                <div class="title">Registrar</div>
+                <form action="#">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Nome</span>
+                            <input type="text" placeholder="Introduza o nome" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">NIF</span>
+                            <input type="number" placeholder="Introduza o NIF" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Email</span>
+                            <input type="email" placeholder="Introduza o email" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Número de telemóvel</span>
+                            <input type="number" placeholder="(+xxx) xxx-xxx-xxx" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Data de Nascimento</span>
+                            <input type="date" id="data-nascimento" name="data-nascimento" value="1995-08-11">
+                        </div>
 
+                        <div class="genero-details">
+                            <label for="genero">Gênero:</label>
+                            <div class="dropdown">
+                                <select id="genero" name="genero">
+                                    <option value="homem">Homem</option>
+                                    <option value="mulher">Mulher</option>
+                                    <option value="nao-binario">Não binário</option>
+                                    <option value="prefiro-nao-dizer">Prefiro não dizer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="perfil-details">
+                            <label for="perfil">Perfil:</label>
+                            <div class="dropdown">
+                                <select id="perfil" name="perfil">
+                                    <option value="gerente">Gerente</option>
+                                    <option value="administrador">Administrador</option>
+                                    <option value="empresa">Empresa</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Adicionar">
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 </div>
 </body>
