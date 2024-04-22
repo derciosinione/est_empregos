@@ -1,7 +1,3 @@
-<header>
-    <h1>Membros</h1>
-    <button class="boton">Adicionar miembro</button>
-</header>
 
 <div>
 
