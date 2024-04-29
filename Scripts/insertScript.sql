@@ -18,10 +18,10 @@ INSERT INTO Categories (Name, IsActive) VALUES ('Human Resources', true);
 INSERT INTO Categories (Name, IsActive) VALUES ('Operations', true);
 
 INSERT INTO Users (Name, UserName, Email, PhoneNumber, AvatarUrl, BirthDay, PasswordHash, ProfileId, IsStaff, IsActive)
-VALUES ('John Doe', 'johndoe', 'estemprego@gmail.com', '+1234567890', 'https://example.com/avatar1.jpg', '1990-05-15', '12345', 1, true, true);
+VALUES ('John Doe', 'johndoe', 'estemprego@gmail.com', '+1234567890', 'https://images.unsplash.com/photo-1558730234-d8b2281b0d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1990-05-15', '12345', 1, true, true);
 
 INSERT INTO Users (Name, UserName, Email, PhoneNumber, AvatarUrl, BirthDay, PasswordHash, ProfileId, IsStaff, IsActive)
-VALUES ('Jane Smith', 'janesmith', 'janesmith@example.com', '+9876543210', 'https://example.com/avatar2.jpg', '1985-09-22', '12345', 2, true, true);
+VALUES ('Jane Smith', 'janesmith', 'janesmith@example.com', '+9876543210', 'https://images.unsplash.com/photo-1509650044681-18857a56c40b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1985-09-22', '12345', 2, true, true);
 
 INSERT INTO Users (Name, UserName, Email, PhoneNumber, AvatarUrl, BirthDay, PasswordHash, ProfileId, IsStaff, IsActive)
 VALUES ('Alice Johnson', 'alicej', 'alice@example.com', '+1112223333', 'https://example.com/avatar3.jpg', '1995-02-10', '12345', 3, false, true);
