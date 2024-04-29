@@ -24,7 +24,7 @@ INSERT INTO Users (Name, UserName, Email, PhoneNumber, AvatarUrl, BirthDay, Pass
 VALUES ('Jane Smith', 'janesmith', 'janesmith@example.com', '+9876543210', 'https://images.unsplash.com/photo-1509650044681-18857a56c40b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1985-09-22', '12345', 2, true, true);
 
 INSERT INTO Users (Name, UserName, Email, PhoneNumber, AvatarUrl, BirthDay, PasswordHash, ProfileId, IsStaff, IsActive)
-VALUES ('Alice Johnson', 'alicej', 'alice@example.com', '+1112223333', 'https://example.com/avatar3.jpg', '1995-02-10', '12345', 3, false, true);
+VALUES ('Alice Johnson', 'alicej', 'alice@example.com', '+1112223333', 'https://images.unsplash.com/photo-1506863530036-1efeddceb993?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '1995-02-10', '12345', 3, false, true);
 
 INSERT INTO Companies (Name, Nif, Address, CompanyStatusId, UserId, IsActive)
 VALUES ('ABC Corp', '123456789', '123 Main St', 1, 1, true);
