@@ -138,64 +138,78 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
+            <div class="empresas-display">
+            <?php
+            echo "<a href='companies.php' class='return-button'>Voltar</a>";
+            // Retrieve the company ID from the URL parameter
+            $companyId = $_GET['id'];
 
-            <header>
-                <h1>Empresas</h1>
-<!--                <button class="boton">Adicionar Empresa</button>-->
-            </header>
+            // Database connection
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "est_jobs";
 
-            <div class="content">
-                <div class="empresas-display">
-                    <h3>Detalhes das empresas</h3>
-                    <div class="empresas-list">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Location</th>
-                                <th>NIF</th>
-                                <th>Email</th>
-                                <th>Date - Time</th>
-                                <th>Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            // Database connection
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "est_jobs";
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-                            // Create connection
-                            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
 
-                            // Check connection
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
+            // Fetch details of the company with the given ID
+            $sql = "SELECT * FROM Companies WHERE id = $companyId";
+            $sql = "SELECT Companies.*, Users.Email AS UserEmail FROM Companies 
+        INNER JOIN Users ON Companies.userId = Users.id 
+        WHERE Companies.id = $companyId";
+            $result = $conn->query($sql);
 
-                            // Get Email :)
-                            $sql = "SELECT Companies.*, Users.Email AS UserEmail FROM Companies INNER JOIN Users ON Companies.userId = Users.id WHERE Companies.IsDeleted = 0 ORDER BY Companies.Name";
-                            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    // Display company details here
+                    echo "<img src='../Images/empresa1.png' class='company-icon'>" . $row['Name'] . "<br>";
+                    echo "<div class='status' data-status='" . $row['CompanyStatusId'] . "'></div><br>";
+                    echo "<br>";
+                    echo "Address: " . $row['Address'] . "<br>";
+                    echo "NIF: " . $row['Nif'] . "<br>";
+                    echo "Email: " . $row['UserEmail'] . "<br>";
+                    echo "Data de Criação: " . $row['CreatedAt'] . "<br>";
+                    echo "ID: " . $row['Id'];
 
-                            // Output
-                            while($row = $result->fetch_assoc()) {
-                                echo "<tr onclick=\"window.location='companies-info.php?id=" . $row['Id'] . "'\">";
-                                echo "<td><img src='../Images/empresa1.png' class='company-icon'>" . $row['Name'] . "</td>";
-                                echo "<td>" . $row['Address'] . "</td>";
-                                echo "<td>" . $row['Nif'] . "</td>";
-                                echo "<td>" . $row['UserEmail'] . "</td>";
-                                echo "<td>" . $row['CreatedAt'] . "</td>";
-                                echo "<td class='status' data-status='" . $row['CompanyStatusId'] . "'>" . "</td>";
-                                echo "</tr>";
-                            }
-                            $conn->close();
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+
+                    echo "<form action='components/update-company-status.php' method='POST'>";
+                    echo "<input type='hidden' name='companyId' value='" . $row['Id'] . "'>";
+                    echo "<select name='newStatus'>";
+
+                    // Status options
+                    $statusOptions = array(
+                        1 => 'Active',
+                        2 => 'Inactive',
+                        3 => 'Pending'
+                    );
+
+                    // Loop through status options
+                    foreach ($statusOptions as $statusId => $statusName) {
+                        // Check if the current status is not the same as the option being added
+                        if ($statusId != $row['CompanyStatusId']) {
+                            // Add option to dropdown
+                            echo "<option value='$statusId'>$statusName</option>";
+                        }
+                    }
+
+                    echo "</select>";
+                    echo "  ";
+                    echo "<button type='submit'>Mudar Estado</button>";
+                    echo "</form>";
+                }
+            } else {
+                echo "No company found with the given ID.";
+            }
+
+            $conn->close();
+            ?>
             </div>
 
         </div>
