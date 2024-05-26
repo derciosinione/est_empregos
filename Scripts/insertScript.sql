@@ -55,3 +55,27 @@ VALUES ('Logistics Solutions', '678901234', '890 Ash St', 3, 3, true);
 
 INSERT INTO Companies (Name, Nif, Address, CompanyStatusId, UserId, IsActive)
 VALUES ('Software Innovations', '456789012', '123 Pine St', 1, 1, true);
+
+
+
+-- Inserir dados na tabela JobOffers
+INSERT INTO JobOffers (Title, Description, CategoryId, CompanyId, LastEditionManagerId, IsActive, IsDeleted)
+VALUES ('Software Developer', 'Develop and maintain software applications.', 1, 1, 1, true, false);
+
+INSERT INTO JobOffers (Title, Description, CategoryId, CompanyId, LastEditionManagerId, IsActive, IsDeleted)
+VALUES ('Project Manager', 'Manage projects and coordinate with teams.', 2, 2, 2, true, false);
+
+INSERT INTO JobOffers (Title, Description, CategoryId, CompanyId, LastEditionManagerId, IsActive, IsDeleted)
+VALUES ('Marketing Specialist', 'Plan and execute marketing campaigns.', 3, 3, 3, true, false);
+
+
+-- Inserir dados na tabela JobOffersEditionHistory
+INSERT INTO JobOffersEditionHistory (Title, Description, CategoryId, CompanyId, LastEditionManagerId, IsActive, IsDeleted)
+VALUES ('Software Developer', 'Develop and maintain software applications.', 1, 1, 1, true, false);
+
+INSERT INTO JobOffersEditionHistory (Title, Description, CategoryId, CompanyId, LastEditionManagerId, IsActive, IsDeleted)
+VALUES ('Project Manager', 'Manage projects and coordinate with teams.', 2, 2, 2, true, false);
+
+INSERT INTO JobOffersEditionHistory (Title, Description, CategoryId, CompanyId, LastEditionManagerId, IsActive, IsDeleted)
+VALUES ('Marketing Specialist', 'Plan and execute marketing campaigns.', 3, 3, 3, true, false);
+

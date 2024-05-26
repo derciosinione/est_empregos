@@ -1,3 +1,16 @@
+<?php
+require '../../backend/Config/DbContext.php';
+
+use Config\DbContext;
+
+
+$dbContext = new DbContext();
+
+
+$jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, CategoryId, CompanyId FROM JobOffers");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/member-style.css">
-    <link rel="stylesheet" href="css/job-details.css">
-    <title>Jobs tetails</title>
+    <link rel="stylesheet" href="css/jobs.css">
+    <title>Document</title>
 </head>
 <body>
 
@@ -23,92 +34,7 @@
 
         <!-- SIDE BAR MENU -->
         <div class="sidebar-menu">
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="index.php">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="active-sidebar-menu">
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="jobs.php">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Ofertas</span>
-                    </a>
-                </li>
-            </ul>
-
-            <br>
-            <hr>
-            <br>
-
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="admin.php">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Admin</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="companies.php">
-                        <i class="fas fa-building"></i>
-                        <span>Empresas</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="team.php">
-                        <i class="fas fa-users"></i>
-                        <span>Team</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="managers.php">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Gestores</span>
-                    </a>
-                </li>
-            </ul>
-
-            <br>
-            <hr>
-            <br>
-
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li><a href="settings.php">
-                        <i class="fas fa-cogs"></i>
-                        <span>Settings</span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul>
-                <div class="active-sidebar-menu-line"></div>
-                <li>
-                    <a href="#">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Logout</span>
-                    </a>
-                </li>
-            </ul>
+            <!-- Sidebar Content -->
         </div>
     </aside>
 
@@ -140,54 +66,50 @@
         <!-- MAIN BODY -->
         <div class="main-body">
             <div class="container">
-                <div class="title">Detalhes da vaga  X</div>
-                <form action="#">
-                    <div class="user-details">
-                        <div class="input-box">
-                            <p><b>Descrição: </b>Estamos a procura de um Desenvolvedor Web altamente talentoso para se juntar à nossa equipe de TI. Serás responsável pelo desenvolvimento e manutenção de sites e aplicativos da Web.</p>
-                        </div>
-                        <div class="input-box">
-                            <p><b>Localização: </b>Coimbra-Portugal</p>
-                        </div>
-                        <div class="input-box">
-                            <p><b>Requisitos: </b></p>
-                            <ul>
-                                <li>
-                                    Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
-                                </li>
-                                <li>
-                                    Muito bons conhecimentos de linguagens de programação Web, como HTML, CSS, JavaScript e frameworks como React ou Angular.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </form>
+                <div class="title">Ofertas de Emprego</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Empresa</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($jobOffers): ?>
+                            <?php foreach ($jobOffers as $job): ?>
+                                <tr>
+                                    <td><?php echo $job['Id']; ?></td>
+                                    <td><?php echo $job['Title']; ?></td>
+                                    <td><?php echo $job['Description']; ?></td>
+                                    <td><?php echo $job['CategoryId']; ?></td>
+                                    <td><?php echo $job['CompanyId']; ?></td>
+                                    <td>
+                                        <form method="post" action="edit_job.php">
+                                            <input type="hidden" name="id" value="<?php echo $job['Id']; ?>">
+                                            <button type="submit" class="btn btn-edit">Editar</button>
+                                        </form>
+
+                                        <form method="post" action="delete_job.php" onsubmit="return confirm('Tem certeza que deseja excluir esta oferta?');">
+                                            <input type="hidden" name="id" value="<?php echo $job['Id']; ?>">
+                                            <button type="submit" class="btn btn-delete">Excluir</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6">Nenhuma oferta encontrada.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

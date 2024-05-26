@@ -126,8 +126,7 @@
 
             <div class="main-header-right">
                 <div class="avatar">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                         alt="">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
                 <div>
                     <p class="bold">Ana Bela</p>
@@ -138,10 +137,9 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-            <!-- <h2>Ofertas de Empregos</h2> -->
-            <?php include 'components/jobs_cards.php' ?>
+            <?php include 'components/jobs_cards.php'; ?>
+            <!--<?php include 'admin/job-details.php'; ?>-->
         </div>
-
     </main>
 </div>
 </body>
