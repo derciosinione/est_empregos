@@ -158,23 +158,6 @@ $userService = new UserService();
           <a href="add-member.php"><button class="boton">Adicionar miembro</button></a>
         </header>
 
-
-
-        <?php
-
-                $data = $userService->getAllUser();
-
-//            $row["Id"], $row["Name"], $row["Email"], $row["PhoneNumber"], $row["BirthDay"], $row["ProfileId"]
-//                print_r($users);
-
-
-                while ($row = $data) {
-//                        $users[] = new UserModel($row["Id"], $row["Name"], $row["Email"], $row["PhoneNumber"], $row["BirthDay"], $row["ProfileId"]);
-                    echo $row["Name"] . " " . $row["Email"] . "<br>";
-                }
-
-
-            ?>
         <!-- MEMBER CARDS -->
         <!-- <?php include_once 'components/team-cards.php' ?> -->
 
