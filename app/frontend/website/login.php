@@ -35,7 +35,7 @@
 
     <div class="form-container sign-up">
 
-        <form>
+        <form action="" method="post">
             <h1>Create Account</h1>
             <input type="text" placeholder="Name">
             <input type="email" placeholder="Email">
@@ -47,8 +47,7 @@
     </div>
 
     <div class="form-container sign-in">
-
-        <form>
+        <form action="../admin/index.php" method="post">
             <h1>Sign In</h1>
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
@@ -60,7 +59,7 @@
                 <span>Remember me</span>
             </div>
             <a href="#"> Forgot Your Password?</a>
-            <button>Sign In</button>
+            <button type="submit">Sign In</button>
         </form>
 
     </div>

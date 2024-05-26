@@ -13,6 +13,7 @@ $jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, Categor
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,15 +23,16 @@ $jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, Categor
     <link rel="stylesheet" href="css/jobs.css">
     <title>Document</title>
 </head>
+
 <body>
 
-<div class="board">
+  <div class="board">
     <!-- SIDE BAR -->
     <aside>
-        <!-- SIDE BAR HEADER -->
-        <div class="sidebar-header">
-            <span>EST<span>Empregos</span></span>
-        </div>
+      <!-- SIDE BAR HEADER -->
+      <div class="sidebar-header">
+        <span>EST<span>Empregos</span></span>
+      </div>
 
         <!-- SIDE BAR MENU -->
         <div class="sidebar-menu">
@@ -40,27 +42,16 @@ $jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, Categor
 
     <!-- MAIN ELEMENT  -->
     <main>
-        <!-- MAIN HEADER -->
-        <div class="main-header">
-            <div class="main-header-left">
-                <div>
-                    <i class="fas fa-bars menu-icon"></i>
-                </div>
-                <div class="search-container">
-                    <input type="text" placeholder="Search...">
-                    <button type="submit" class="btn-icon"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-
-            <div class="main-header-right">
-                <div class="avatar">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-                </div>
-                <div>
-                    <p class="bold">Ana Bela</p>
-                    <p class="blackOpacity">Admin</p>
-                </div>
-            </div>
+      <!-- MAIN HEADER -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <div>
+            <i class="fas fa-bars menu-icon"></i>
+          </div>
+          <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit" class="btn-icon"><i class="fas fa-search"></i></button>
+          </div>
         </div>
 
         <!-- MAIN BODY -->
@@ -109,7 +100,39 @@ $jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, Categor
                 </table>
             </div>
         </div>
+      </div>
+
+      <!-- MAIN BODY -->
+      <div class="main-body">
+        <div class="container">
+          <div class="title">Detalhes da vaga X</div>
+          <form action="#">
+            <div class="user-details">
+              <div class="input-box">
+                <p><b>Descrição: </b>Estamos a procura de um Desenvolvedor Web altamente talentoso para se juntar à
+                  nossa equipe de TI. Serás responsável pelo desenvolvimento e manutenção de sites e aplicativos da Web.
+                </p>
+              </div>
+              <div class="input-box">
+                <p><b>Localização: </b>Coimbra-Portugal</p>
+              </div>
+              <div class="input-box">
+                <p><b>Requisitos: </b></p>
+                <ul>
+                  <li>
+                    Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
+                  </li>
+                  <li>
+                    Muito bons conhecimentos de linguagens de programação Web, como HTML, CSS, JavaScript e frameworks
+                    como React ou Angular.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
-</div>
+  </div>
 </body>
 </html>

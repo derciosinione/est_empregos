@@ -24,6 +24,11 @@ class UserService implements IUser
         $this->connection = $this->db->getConnection();
     }
 
+    public function test()
+    {
+        return "Testando";
+    }
+
     public function login($email, $password): ?UserModel
     {
 //        $password = md5($password);
@@ -163,5 +168,21 @@ class UserService implements IUser
         } else {
             return $result;
         }
+    }
+
+    public function getAllUser()
+    {
+        $users = [];
+        $query = "SELECT * FROM Users WHERE IsStaff";
+
+        $data = $this->db->executeSqlQuery($query);
+
+        if ($data == null) return $users;
+
+//        while ($row = $data) {
+//            $users[] = new UserModel($row["Id"], $row["Name"], $row["Email"], $row["PhoneNumber"], $row["BirthDay"], $row["ProfileId"]);
+//        }
+
+        return $data;
     }
 }

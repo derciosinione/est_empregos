@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/add-member.css">
+  <link rel="stylesheet" href="css/empresas.css">
   <title>Document</title>
 </head>
 
@@ -57,7 +57,7 @@
           </li>
         </ul>
 
-        <ul>
+        <ul class="active-sidebar-menu">
           <div class="active-sidebar-menu-line"></div>
           <li>
             <a href="companies.php">
@@ -77,7 +77,7 @@
           </li>
         </ul>
 
-        <ul class="active-sidebar-menu">
+        <ul>
           <div class="active-sidebar-menu-line"></div>
           <li>
             <a href="managers.php">
@@ -93,8 +93,7 @@
 
         <ul>
           <div class="active-sidebar-menu-line"></div>
-          <li>
-            <a href="settings.php">
+          <li><a href="settings.php">
               <i class="fas fa-cogs"></i>
               <span>Settings</span>
             </a>
@@ -142,62 +141,82 @@
 
       <!-- MAIN BODY -->
       <div class="main-body">
-        <!-- <h1>Criar formulário</h1> -->
-        <div class="container">
-          <div class="title">Registrar</div>
-          <form action="#">
-            <div class="user-details">
-              <div class="input-box">
-                <span class="details">Nome</span>
-                <input type="text" placeholder="Introduza o nome" required>
-              </div>
-              <div class="input-box">
-                <span class="details">NIF</span>
-                <input type="number" placeholder="Introduza o NIF" required>
-              </div>
-              <div class="input-box">
-                <span class="details">Email</span>
-                <input type="email" placeholder="Introduza o email" required>
-              </div>
-              <div class="input-box">
-                <span class="details">Número de telemóvel</span>
-                <input type="number" placeholder="(+xxx) xxx-xxx-xxx" required>
-              </div>
-              <div class="input-box">
-                <span class="details">Data de Nascimento</span>
-                <input type="date" id="data-nascimento" name="data-nascimento" value="1995-08-11">
-              </div>
+        <div class="empresas-display">
+          <?php
+            echo "<a href='companies.php' class='return-button'>Voltar</a>";
+            // Retrieve the company ID from the URL parameter
+            $companyId = $_GET['id'];
 
-              <div class="genero-details">
-                <label for="genero">Gênero:</label>
-                <div class="dropdown">
-                  <select id="genero" name="genero">
-                    <option value="homem">Homem</option>
-                    <option value="mulher">Mulher</option>
-                    <option value="nao-binario">Não binário</option>
-                    <option value="prefiro-nao-dizer">Prefiro não dizer</option>
-                  </select>
-                </div>
-              </div>
+            // Database connection
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "est_jobs";
 
-              <div class="perfil-details">
-                <label for="perfil">Perfil:</label>
-                <div class="dropdown">
-                  <select id="perfil" name="perfil">
-                    <option value="gerente">Gerente</option>
-                    <option value="administrador">Administrador</option>
-                    <option value="empresa">Empresa</option>
-                    <option value="outro">Outro</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="button">
-              <input type="submit" value="Adicionar">
-            </div>
-          </form>
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Fetch details of the company with the given ID
+            $sql = "SELECT * FROM Companies WHERE id = $companyId";
+            $sql = "SELECT Companies.*, Users.Email AS UserEmail FROM Companies 
+        INNER JOIN Users ON Companies.userId = Users.id 
+        WHERE Companies.id = $companyId";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    // Display company details here
+                    echo "<img src='../Images/empresa1.png' class='company-icon'>" . $row['Name'] . "<br>";
+                    echo "<div class='status' data-status='" . $row['CompanyStatusId'] . "'></div><br>";
+                    echo "<br>";
+                    echo "Address: " . $row['Address'] . "<br>";
+                    echo "NIF: " . $row['Nif'] . "<br>";
+                    echo "Email: " . $row['UserEmail'] . "<br>";
+                    echo "Data de Criação: " . $row['CreatedAt'] . "<br>";
+                    echo "ID: " . $row['Id'];
+
+
+                    echo "<form action='components/update-company-status.php' method='POST'>";
+                    echo "<input type='hidden' name='companyId' value='" . $row['Id'] . "'>";
+                    echo "<select name='newStatus'>";
+
+                    // Status options
+                    $statusOptions = array(
+                        1 => 'Active',
+                        2 => 'Inactive',
+                        3 => 'Pending'
+                    );
+
+                    // Loop through status options
+                    foreach ($statusOptions as $statusId => $statusName) {
+                        // Check if the current status is not the same as the option being added
+                        if ($statusId != $row['CompanyStatusId']) {
+                            // Add option to dropdown
+                            echo "<option value='$statusId'>$statusName</option>";
+                        }
+                    }
+
+                    echo "</select>";
+                    echo "  ";
+                    echo "<button type='submit'>Mudar Estado</button>";
+                    echo "</form>";
+                }
+            } else {
+                echo "No company found with the given ID.";
+            }
+
+            $conn->close();
+            ?>
         </div>
+
       </div>
+
     </main>
   </div>
 </body>

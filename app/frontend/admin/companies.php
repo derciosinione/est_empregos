@@ -101,7 +101,7 @@
             <ul>
                 <div class="active-sidebar-menu-line"></div>
                 <li>
-                    <a href="#">
+                    <a href="../website/index.html">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Logout</span>
                     </a>
@@ -160,30 +160,38 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><img src="../Images/empresa1.png" class="company-icon">McDonald's</td>
-                                <td>123 eu antes sofria, agora sou fria</td>
-                                <td>123456789</td>
-                                <td>business@mcdonalds.pt</td>
-                                <td>2024-03-16 09:00</td>
-                                <td class="status" data-status="Habilitada"></td>
-                            </tr>
-                            <tr>
-                                <td><img src="../Images/empresa1.png" class="company-icon">McDonald's</td>
-                                <td>123 eu antes sofria, agora sou fria</td>
-                                <td>123456789</td>
-                                <td>business@mcdonalds.pt</td>
-                                <td>2024-03-16 09:00</td>
-                                <td class="status" data-status="Pending"></td>
-                            </tr>
-                            <tr>
-                                <td><img src="../Images/empresa1.png" class="company-icon">McDonald's</td>
-                                <td>123 eu antes sofria, agora sou fria</td>
-                                <td>123456789</td>
-                                <td>business@mcdonalds.pt</td>
-                                <td>2024-03-16 09:00</td>
-                                <td class="status" data-status="Bloqueada"></td>
-                            </tr>
+                            <?php
+                            // Database connection
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "est_jobs";
+
+                            // Create connection
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+
+                            // Get Email :)
+                            $sql = "SELECT Companies.*, Users.Email AS UserEmail FROM Companies INNER JOIN Users ON Companies.userId = Users.id WHERE Companies.IsDeleted = 0 ORDER BY Companies.Name";
+                            $result = $conn->query($sql);
+
+                            // Output
+                            while($row = $result->fetch_assoc()) {
+                                echo "<tr onclick=\"window.location='companies-info.php?id=" . $row['Id'] . "'\">";
+                                echo "<td><img src='../Images/empresa1.png' class='company-icon'>" . $row['Name'] . "</td>";
+                                echo "<td>" . $row['Address'] . "</td>";
+                                echo "<td>" . $row['Nif'] . "</td>";
+                                echo "<td>" . $row['UserEmail'] . "</td>";
+                                echo "<td>" . $row['CreatedAt'] . "</td>";
+                                echo "<td class='status' data-status='" . $row['CompanyStatusId'] . "'>" . "</td>";
+                                echo "</tr>";
+                            }
+                            $conn->close();
+                            ?>
                             </tbody>
                         </table>
                     </div>
