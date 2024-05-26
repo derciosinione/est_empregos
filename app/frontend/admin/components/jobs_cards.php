@@ -1,6 +1,6 @@
 <header>
     <h1>Ofertas de Emprego</h1>
-    <button class="boton">Adicionar oferta</button>
+    <a href="add-jobs.php"><button class="boton">Adicionar oferta</button></a> 
 </header>
 
 <div>

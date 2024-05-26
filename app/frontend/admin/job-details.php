@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/member-style.css">
-    <title>Team</title>
+    <link rel="stylesheet" href="css/job-details.css">
+    <title>Jobs tetails</title>
 </head>
 <body>
 
@@ -138,22 +139,31 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-        <h1>Detalhes da vaga de Desenvolvedor Web</h1>
-    <p><b>Descrição: </b>Estamos a procra de um Desenvolvedor Web atltamente talentoso para se juntar a nossa equipe de TI. Serás responsavél oelo desenvolvimento e manutenção de sites e aplicativos da Web.</p>
-    <p><b>Localização: </b>Coimbra-Portugal</p>
-    <p><b>Requsitos: </b></p>
-    <ul>
-        <li>
-            Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
-        </li>
-        <li>
-            Muito bons conhecimentos de linguagens de programação Web, como HTML,CSS,JavaScript e framewares como React ou Angular.
-        </li>
-    </ul>
-
-
+            <div class="container">
+                <div class="title">Detalhes da vaga  X</div>
+                <form action="#">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <p><b>Descrição: </b>Estamos a procura de um Desenvolvedor Web altamente talentoso para se juntar à nossa equipe de TI. Serás responsável pelo desenvolvimento e manutenção de sites e aplicativos da Web.</p>
+                        </div>
+                        <div class="input-box">
+                            <p><b>Localização: </b>Coimbra-Portugal</p>
+                        </div>
+                        <div class="input-box">
+                            <p><b>Requisitos: </b></p>
+                            <ul>
+                                <li>
+                                    Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
+                                </li>
+                                <li>
+                                    Muito bons conhecimentos de linguagens de programação Web, como HTML, CSS, JavaScript e frameworks como React ou Angular.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </main>
 </div>
 </body>

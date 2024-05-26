@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Config</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/add-jobs.css">
+    <title>Add jobs</title>
 </head>
 <body>
 
@@ -75,7 +75,7 @@
                 </li>
             </ul>
 
-            <ul>
+            <ul class="active-sidebar-menu">
                 <div class="active-sidebar-menu-line"></div>
                 <li>
                     <a href="managers.php">
@@ -89,9 +89,10 @@
             <hr>
             <br>
 
-            <ul class="active-sidebar-menu">
+            <ul>
                 <div class="active-sidebar-menu-line"></div>
-                <li><a href="settings.php">
+                <li>
+                    <a href="settings.php">
                         <i class="fas fa-cogs"></i>
                         <span>Settings</span>
                     </a>
@@ -138,19 +139,31 @@
 
         <!-- MAIN BODY -->
         <div class="main-body">
-            <div class="settings-container">
-                <h2>User Configuration</h2>
-                <ul class="preferences-list">
-                <li><a href="change-password.php">Change Password</a></li>
-                <li><a href="#">Privacy Config</a></li>
-                <li><a href="#">Notification Config</a></li>
-                <!-- Añade más opciones según necesites -->
-                </ul>
+            <!-- <h1>Criar formulário</h1> -->
+            <div class="container">
+                <div class="title">Publicar Vaga de Emprego</div>
+                <form action="#">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Título</span>
+                            <input type="text" placeholder="Introduza o titilo" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Categoria</span>
+                            <input type="text" placeholder="Introduza a categoria" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Descrição</span>
+                            <textarea id="descricao" placeholder="Introduza a descrição" required></textarea>
+                        </div>
+                        
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Publicar">
+                    </div>
+                </form>
             </div>
-
-
         </div>
-
     </main>
 </div>
 </body>
