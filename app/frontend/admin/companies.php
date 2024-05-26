@@ -101,7 +101,7 @@
             <ul>
                 <div class="active-sidebar-menu-line"></div>
                 <li>
-                    <a href="#">
+                    <a href="../website/index.html">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Logout</span>
                     </a>
