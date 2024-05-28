@@ -3,12 +3,38 @@ require '../../backend/Config/DbContext.php';
 
 use Config\DbContext;
 
-
 $dbContext = new DbContext();
 
+// Check if job ID is provided in the URL
+if (isset($_GET['id'])) {
+    $jobId = $_GET['id'];
 
-$jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, CategoryId, CompanyId FROM JobOffers");
+    // Fetch job details based on the provided job ID
+    $jobDetails = $dbContext->executeSqlQuery("
+        SELECT 
+            j.*, 
+            c.Name AS CompanyName 
+        FROM 
+            JobOffers j 
+        JOIN 
+            Companies c ON j.CompanyId = c.Id
+        WHERE 
+            j.Id = $jobId
+    ");
 
+    // Check if job details are found
+    if ($jobDetails) {
+        $job = $jobDetails[0]; // Assuming only one job is found for the given ID
+    } else {
+        // Redirect to jobs.php if job details are not found
+        header("Location: jobs.php");
+        exit;
+    }
+} else {
+    // Redirect to jobs.php if job ID is not provided in the URL
+    header("Location: jobs.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,18 +47,18 @@ $jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, Categor
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/jobs.css">
-    <title>Document</title>
+    <title>Detalhes da Vaga</title>
 </head>
 
 <body>
 
-  <div class="board">
+<div class="board">
     <!-- SIDE BAR -->
     <aside>
-      <!-- SIDE BAR HEADER -->
-      <div class="sidebar-header">
-        <span>EST<span>Empregos</span></span>
-      </div>
+        <!-- SIDE BAR HEADER -->
+        <div class="sidebar-header">
+            <span>EST<span>Empregos</span></span>
+        </div>
 
         <!-- SIDE BAR MENU -->
         <div class="sidebar-menu">
@@ -42,97 +68,36 @@ $jobOffers = $dbContext->executeSqlQuery("SELECT Id, Title, Description, Categor
 
     <!-- MAIN ELEMENT  -->
     <main>
-      <!-- MAIN HEADER -->
-      <div class="main-header">
-        <div class="main-header-left">
-          <div>
-            <i class="fas fa-bars menu-icon"></i>
-          </div>
-          <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button type="submit" class="btn-icon"><i class="fas fa-search"></i></button>
-          </div>
+        <!-- MAIN HEADER -->
+        <div class="main-header">
+            <div class="main-header-left">
+                <div>
+                    <i class="fas fa-bars menu-icon"></i>
+                </div>
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit" class="btn-icon"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
         </div>
 
         <!-- MAIN BODY -->
         <div class="main-body">
             <div class="container">
-                <div class="title">Ofertas de Emprego</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Categoria</th>
-                            <th>Empresa</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if ($jobOffers): ?>
-                            <?php foreach ($jobOffers as $job): ?>
-                                <tr>
-                                    <td><?php echo $job['Id']; ?></td>
-                                    <td><?php echo $job['Title']; ?></td>
-                                    <td><?php echo $job['Description']; ?></td>
-                                    <td><?php echo $job['CategoryId']; ?></td>
-                                    <td><?php echo $job['CompanyId']; ?></td>
-                                    <td>
-                                        <form method="post" action="edit_job.php">
-                                            <input type="hidden" name="id" value="<?php echo $job['Id']; ?>">
-                                            <button type="submit" class="btn btn-edit">Editar</button>
-                                        </form>
-
-                                        <form method="post" action="delete_job.php" onsubmit="return confirm('Tem certeza que deseja excluir esta oferta?');">
-                                            <input type="hidden" name="id" value="<?php echo $job['Id']; ?>">
-                                            <button type="submit" class="btn btn-delete">Excluir</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="6">Nenhuma oferta encontrada.</td>
-                            </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
+                <div class="title">Detalhes da vaga <?php echo $job['Title']; ?></div>
+                <div class="user-details">
+                    <div class="input-box">
+                        <p><b>Descrição: </b><?php echo $job['Description']; ?></p>
+                    </div>
+                    <div class="input-box">
+                        <p><b>Empresa: </b><?php echo $job['CompanyName']; ?></p>
+                    </div>
+                    <!-- Add more job details here -->
+                </div>
             </div>
         </div>
-      </div>
-
-      <!-- MAIN BODY -->
-      <div class="main-body">
-        <div class="container">
-          <div class="title">Detalhes da vaga X</div>
-          <form action="#">
-            <div class="user-details">
-              <div class="input-box">
-                <p><b>Descrição: </b>Estamos a procura de um Desenvolvedor Web altamente talentoso para se juntar à
-                  nossa equipe de TI. Serás responsável pelo desenvolvimento e manutenção de sites e aplicativos da Web.
-                </p>
-              </div>
-              <div class="input-box">
-                <p><b>Localização: </b>Coimbra-Portugal</p>
-              </div>
-              <div class="input-box">
-                <p><b>Requisitos: </b></p>
-                <ul>
-                  <li>
-                    Experiência comprovada como Desenvolvedor Web ou em uma posição semelhante.
-                  </li>
-                  <li>
-                    Muito bons conhecimentos de linguagens de programação Web, como HTML, CSS, JavaScript e frameworks
-                    como React ou Angular.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
     </main>
-  </div>
+</div>
+
 </body>
 </html>

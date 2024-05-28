@@ -1,3 +1,23 @@
+<?php
+
+require '../../backend/Config/DbContext.php';
+
+use Config\DbContext;
+
+$dbContext = new DbContext();
+
+// Fetch job offers from the database with company name
+$jobs = $dbContext->executeSqlQuery("
+    SELECT 
+        j.*, 
+        c.Name AS CompanyName 
+    FROM 
+        JobOffers j 
+    JOIN 
+        Companies c ON j.CompanyId = c.Id
+");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,9 +158,28 @@
         </div>
 
         <!-- MAIN BODY -->
-        <div class="main-body">
-            <?php include 'components/jobs_cards.php'; ?>
-            <!--<?php include 'admin/job-details.php'; ?>-->
+        <!-- MAIN BODY -->
+  	    <div class="main-body">
+        <!-- Add button to navigate to add-job.php -->
+        <div class="add-job-btn">
+          <a href="add-jobs.php" class="btn btn-primary">Adicionar Nova Oferta</a>
+        </div>
+        <?php foreach ($jobs as $job) : ?>
+        <div class="tarjeta">
+            <h3><?php echo $job['Title']; ?></h3>
+            <p><strong>Empresa:</strong> <?php echo $job['CompanyName']; ?></p>
+            <p>Data de publicação: <?php echo $job['CreatedAt']; ?></p>
+            <p>Estado: <?php echo $job['IsActive']; ?></p>
+            <!-- Link to view job details -->
+            <p><a href="job-details.php?id=<?php echo $job['Id']; ?>">Ver Detalhes</a></p>
+            <!-- Link para editar o trabalho -->
+            <p><a href="edit_job.php?id=<?php echo $job['Id']; ?>"><i class="fas fa-edit"></i> Editar</a></p>
+
+        <!-- Link para excluir o trabalho -->
+           <p><a href="delete_job.php?id=<?php echo $job['Id']; ?>" class="delete-job"><i class="fas fa-trash-alt"></i> Excluir</a></p>
+
+        </div>
+        <?php endforeach; ?>
         </div>
     </main>
   </div>

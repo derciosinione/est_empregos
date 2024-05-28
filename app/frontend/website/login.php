@@ -59,7 +59,7 @@
                 <span>Remember me</span>
             </div>
             <a href="#"> Forgot Your Password?</a>
-            <button type="submit">Sign In</button>
+            <button type="submit">Log In</button>
         </form>
 
     </div>
