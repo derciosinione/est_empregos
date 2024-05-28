@@ -47,7 +47,6 @@ session_start();
             <input type="password" placeholder="Confirm Password">
             <button>Sign Up</button>
         </form>
-
     </div>
 
 
