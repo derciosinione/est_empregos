@@ -114,7 +114,7 @@ $userService = new UserService();
         <ul>
           <div class="active-sidebar-menu-line"></div>
           <li>
-            <a href="../website/index.html">
+            <a href="../website/index.php">
               <i class="fas fa-sign-out-alt"></i>
               <span>Logout</span>
             </a>

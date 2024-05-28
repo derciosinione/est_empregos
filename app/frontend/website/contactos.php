@@ -23,10 +23,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Início</a>
+                    <a class="nav-link" href="index.php">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="vagas.html">Vagas</a>
+                    <a class="nav-link" href="vagas.php">Vagas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="contactos.html">Contactos</a>
@@ -137,9 +137,9 @@ Junte-se a nós e comece sua jornada rumo ao emprego dos seus sonhos hoje mesmo!
             <h5 class="text-uppercase">Links Uteis</h5>
             <ul>
                 <li><a href="autores.html"><i class="fas fa-chevron-right"></i> Autores</a></li>
-                <li><a href="vagas.html"><i class="fas fa-chevron-right"></i> Vagas</a></li>
+                <li><a href="vagas.php"><i class="fas fa-chevron-right"></i> Vagas</a></li>
                 <li><a href="contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                <li><a href="criar-conta.html"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
+                <li><a href="criar-conta.php"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
             </ul>
         </div>
     </section>

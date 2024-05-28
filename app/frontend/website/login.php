@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +50,16 @@
 
     </div>
 
+
     <div class="form-container sign-in">
-        <form action="../admin/index.php" method="post">
+        <div style="text-align: center; padding-top: 10px">
+            <?php include "../displayMessageIfExists.php" ?>
+        </div>
+
+        <form action="../../backend/Handlers/login/login.php" method="post">
             <h1>Sign In</h1>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
             <div class="remember-but">
                 <input type="checkbox" id="remember" class="but">
                 <label for="remember" class="label">

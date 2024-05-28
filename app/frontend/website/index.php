@@ -28,10 +28,10 @@
                     <a class="nav-link active" href="index.html">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="vagas.html">Vagas</a>
+                    <a class="nav-link" href="vagas.php">Vagas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contactos.html">Contactos</a>
+                    <a class="nav-link" href="contactos.php">Contactos</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -156,7 +156,7 @@
         <div class="course-cards">
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-1.jpg" alt="">
                     </div>
@@ -168,7 +168,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-4.jpg" alt="">
                     </div>
@@ -180,7 +180,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-3.jpg" alt="">
                     </div>
@@ -192,7 +192,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-2.jpg" alt="">
                     </div>
@@ -227,9 +227,9 @@ Junte-se a nós e comece sua jornada rumo ao emprego dos seus sonhos hoje mesmo!
             <h5 class="text-uppercase">Links Uteis</h5>
             <ul>
                 <li><a href="autores.html"><i class="fas fa-chevron-right"></i> Autores</a></li>
-                <li><a href="vagas.html"><i class="fas fa-chevron-right"></i> Vagas</a></li>
-                <li><a href="contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                <li><a href="criar-conta.html"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
+                <li><a href="vagas.php"><i class="fas fa-chevron-right"></i> Vagas</a></li>
+                <li><a href="contactos.php"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                <li><a href="criar-conta.php"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
             </ul>
         </div>
     </section>

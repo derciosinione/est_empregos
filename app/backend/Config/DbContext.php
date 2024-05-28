@@ -3,6 +3,7 @@
 namespace Config;
 
 use mysqli;
+use mysqli_stmt;
 
 class DbContext
 {
@@ -50,6 +51,55 @@ class DbContext
         $this->closeConnection();
 
         return $data;
+    }
+
+    /**
+     * @param false|mysqli_stmt $statement
+     * @return array|false|null
+     */
+    public function executeSqlCommand($statement)
+    {
+        $this->getConnection();
+
+        $statement->execute();
+
+        $result = $statement->get_result();
+
+        if (!$result || $result->num_rows == 0) return null;
+
+        $response = $result->fetch_assoc();
+
+        $this->closeConnection();
+
+        return $response;
+    }
+
+    /**
+     * Executes an INSERT query and returns the last inserted ID if successful.
+     *
+     * @param string $query The SQL INSERT query to execute.
+     *
+     * @return int|null The last inserted ID if the query was successful, or null on failure.
+     */
+    public function executeInsertQuery(string $query): ?int
+    {
+        $this->getConnection();
+
+        $result = $this->connection->query($query);
+
+        if (!$result){
+            die("Query execution failed: " . $this->connection->error);
+        }
+
+        $lastInsertedId = 0;
+
+        if ($result === true &&  $this->connection->insert_id !== 0) {
+            $lastInsertedId = $this->connection->insert_id;
+        }
+
+        $this->closeConnection();
+
+        return $lastInsertedId;
     }
 }
 ?>

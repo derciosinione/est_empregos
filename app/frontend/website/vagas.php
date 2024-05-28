@@ -24,13 +24,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Início</a>
+                    <a class="nav-link" href="index.php">Início</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="vagas.html">Vagas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contactos.html">Contactos</a>
+                    <a class="nav-link" href="contactos.php">Contactos</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto ">
@@ -65,7 +65,7 @@
         <div class="course-cards">
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-1.jpg" alt="">
                     </div>
@@ -77,7 +77,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-4.jpg" alt="">
                     </div>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-3.jpg" alt="">
                     </div>
@@ -101,7 +101,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-2.jpg" alt="">
                     </div>
@@ -113,7 +113,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-1.jpg" alt="">
                     </div>
@@ -125,7 +125,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-4.jpg" alt="">
                     </div>
@@ -137,7 +137,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-3.jpg" alt="">
                     </div>
@@ -149,7 +149,7 @@
             </div>
 
             <div class="transition-scale">
-                <a href="vagas-detalhes.html">
+                <a href="vagas-detalhes.php">
                     <div class="course-img">
                         <img src="Img/courses-2.jpg" alt="">
                     </div>
@@ -205,8 +205,8 @@ Junte-se a nós e comece sua jornada rumo ao emprego dos seus sonhos hoje mesmo!
             <ul>
                 <li><a href="autores.html"><i class="fas fa-chevron-right"></i> Autores</a></li>
                 <li><a href="vagas.html"><i class="fas fa-chevron-right"></i> Vagas</a></li>
-                <li><a href="contactos.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
-                <li><a href="criar-conta.html"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
+                <li><a href="contactos.php"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                <li><a href="criar-conta.php"><i class="fas fa-chevron-right"></i> Criar Conta</a></li>
             </ul>
         </div>
     </section>

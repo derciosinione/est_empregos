@@ -10,6 +10,8 @@ $_SESSION['warning_message'] = null;
 use Services\UserService;
 include '../../Services/UserService.php';
 
+include '../../../frontend/admin/index.php';
+
 if (!isset($_POST['email'], $_POST['password'])) {
     $_SESSION['warning_message'] = "Provide email and password";
     header("Location: ../Test/loginTest.php");
@@ -24,12 +26,12 @@ $myLogin = $userService->login($email, $password);
 
 if ($myLogin == null) {
     $_SESSION['warning_message'] = "Invalid Credential";
-    header("Location: ../Test/loginTest.php");
+    header("Location: ../../../frontend/website/login.php");
     exit();
 }
 
 $_SESSION['success_message'] = "You are logged in";
 
 $_SESSION['loggedUser'] = serialize($myLogin);
-header("Location: ../Test/adminTest.php");
+header("Location: ../../../frontend/admin/index.php");
 exit();

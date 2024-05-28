@@ -19,7 +19,7 @@
 
     <div class="content">
         <nav>
-            <a href="index.html"><span class="my-logo">My<span>Academy</span></span></a>
+            <a href="index.php"><span class="my-logo">My<span>Academy</span></span></a>
             <span>tem uma conta? <a href=""login.php"">Entrar!</a></span>
         </nav>
 
